@@ -6,43 +6,50 @@
 body {
   margin: 0;
   height: 100vh;
+
+  /* premium background */
   background:
     radial-gradient(circle at 20% 20%, #1a2045, transparent 60%),
     radial-gradient(circle at 80% 30%, #0f3a3a, transparent 55%),
     linear-gradient(135deg, #070914, #0b1025);
+
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
 }
 
-/* App container */
+/* App wrapper */
 .app {
   display: flex;
   gap: 28px;
   position: relative;
 }
 
-/* BACKGROUND WATERMARK */
+/* REAL watermark — background only */
 .app::before {
   content: "VRISHAB VARUN";
   position: absolute;
   inset: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 64px;
-  font-weight: 700;
-  letter-spacing: 10px;
-  color: rgba(255, 255, 255, 0.04);
+
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 12px;
+  color: rgba(255, 255, 255, 0.035);
+
   pointer-events: none;
+  user-select: none;
   z-index: 0;
 }
 
-/* Calculator */
+/* Calculator card */
 .calculator {
-  background: rgba(15, 20, 45, 0.9);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 20, 45, 0.92);
+  backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 18px;
   width: 320px;
@@ -107,8 +114,8 @@ button:hover {
 
 /* History */
 .history {
-  background: rgba(15, 20, 45, 0.9);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 20, 45, 0.92);
+  backdrop-filter: blur(10px);
   padding: 16px;
   border-radius: 18px;
   width: 220px;
