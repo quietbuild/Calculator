@@ -5,122 +5,112 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: #0b0e1a; /* deep dark */
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  height: 100vh;
 }
 
-/* Small stylish credit */
-.credit {
-  position: fixed;
-  top: 14px;
-  right: 18px;
-  font-size: 13px;
-  opacity: 0.7;
-  letter-spacing: 0.6px;
-}
-
-/* App layout */
+/* Calculator container */
 .app {
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 20px;
 }
 
-/* Calculator body */
+/* Calculator */
 .calculator {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  padding: 22px;
-  border-radius: 20px;
+  background: #14182f;
+  padding: 20px;
+  border-radius: 16px;
   width: 320px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 40px rgba(0,0,0,0.6);
 }
 
 /* Display */
 #display {
   width: 100%;
   height: 60px;
-  font-size: 26px;
-  font-weight: 600;
+  background: #000;
+  color: #00ffcc;
+  font-size: 28px;
   text-align: right;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 10px;
+  border-radius: 10px;
   border: none;
-  background: rgba(0, 0, 0, 0.35);
-  color: #ffffff;
-  margin-bottom: 14px;
+  margin-bottom: 15px;
 }
 
 /* Button grid */
-.grid,
-.science {
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
-/* Buttons */
 button {
   height: 52px;
-  border: none;
-  border-radius: 14px;
   font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  background: #222863;
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.18);
-  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 button:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
+  background: #3a42b5;
 }
 
 .wide {
   grid-column: span 2;
 }
 
-/* Science buttons spacing */
+/* Scientific buttons */
 .science {
   margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
-/* History panel */
+.science button {
+  background: #1f7a6e;
+}
+
+.science button:hover {
+  background: #28b7a4;
+}
+
+/* History */
 .history {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
-  padding: 18px;
-  border-radius: 20px;
-  width: 240px;
-  max-height: 340px;
+  background: #14182f;
+  padding: 15px;
+  border-radius: 16px;
+  width: 220px;
+  max-height: 320px;
   overflow-y: auto;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
-
-.history h3 {
-  margin-top: 0;
-  font-weight: 600;
-  opacity: 0.85;
-}
-
-.history ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   font-size: 14px;
-  opacity: 0.9;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .app {
-    flex-direction: column;
-    align-items: center;
-  }
+/* WATERMARK */
+#watermark {
+  position: fixed;
+  inset: 0;
+  background: #0b0e1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(0, 255, 204, 0.15);
+  letter-spacing: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#watermark.show {
+  opacity: 1;
 }
