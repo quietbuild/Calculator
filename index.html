@@ -1,229 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Calculator</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>VV Calculator</title>
 
-<style>
-* {
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
+  <!-- Required for mobile / PWA -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1025" />
 
-body {
-  margin: 0;
-  height: 100vh;
-  background:
-    radial-gradient(circle at 15% 20%, #1a1f45, transparent 60%),
-    radial-gradient(circle at 85% 30%, #0f3a3a, transparent 55%),
-    linear-gradient(135deg, #060816, #0b1025);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
 
-/* App */
-.app {
-  display: flex;
-  gap: 28px;
-}
-
-/* Calculator */
-.calculator {
-  background: rgba(14, 18, 45, 0.94);
-  padding: 20px;
-  border-radius: 18px;
-  width: 320px;
-  box-shadow: 0 35px 80px rgba(0,0,0,0.75);
-}
-
-/* Display */
-#display {
-  width: 100%;
-  height: 60px;
-  background: #02030a;
-  color: #7fffe9;
-  font-size: 28px;
-  text-align: right;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  margin-bottom: 16px;
-}
-
-/* Buttons */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-button {
-  height: 52px;
-  font-size: 18px;
-  border-radius: 12px;
-  border: none;
-  background: #1d2452;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #2f3ac4;
-}
-
-.wide {
-  grid-column: span 2;
-}
-
-/* Science */
-.science {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-.science button {
-  background: #155f5a;
-}
-
-.science button:hover {
-  background: #1fa59a;
-}
-
-/* History */
-.history {
-  background: rgba(14, 18, 45, 0.94);
-  padding: 16px;
-  border-radius: 18px;
-  width: 220px;
-  max-height: 330px;
-  overflow-y: auto;
-  font-size: 14px;
-}
-
-/* Branding */
-body::after {
-  content: "BUILT BY · VRISHAB VARUN © 2026";
-  position: fixed;
-  bottom: 18px;
-  left: 22px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.45);
-  pointer-events: none;
-  user-select: none;
-  opacity: 0;
-  animation: brandFade 1.2s ease-out forwards;
-}
-
-@keyframes brandFade {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css?v=install1" />
 </head>
-
 <body>
 
-<div class="app">
+  <div class="app">
 
-  <div class="calculator">
-    <input id="display" disabled />
+    <div class="calculator">
+      <input id="display" disabled />
 
-    <div class="grid">
-      <button onclick="clearAll()">AC</button>
-      <button onclick="append('(')">(</button>
-      <button onclick="append(')')">)</button>
-      <button onclick="append('/')">÷</button>
+      <div class="grid">
+        <button onclick="clearAll()">AC</button>
+        <button onclick="append('(')">(</button>
+        <button onclick="append(')')">)</button>
+        <button onclick="append('/')">÷</button>
 
-      <button onclick="append('7')">7</button>
-      <button onclick="append('8')">8</button>
-      <button onclick="append('9')">9</button>
-      <button onclick="append('*')">×</button>
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('*')">×</button>
 
-      <button onclick="append('4')">4</button>
-      <button onclick="append('5')">5</button>
-      <button onclick="append('6')">6</button>
-      <button onclick="append('-')">−</button>
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('-')">−</button>
 
-      <button onclick="append('1')">1</button>
-      <button onclick="append('2')">2</button>
-      <button onclick="append('3')">3</button>
-      <button onclick="append('+')">+</button>
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('+')">+</button>
 
-      <button onclick="append('0')" class="wide">0</button>
-      <button onclick="append('.')">.</button>
-      <button onclick="calculate()">=</button>
+        <button onclick="append('0')" class="wide">0</button>
+        <button onclick="append('.')">.</button>
+        <button onclick="calculate()">=</button>
+      </div>
+
+      <div class="science">
+        <button onclick="sci('sin')">sin</button>
+        <button onclick="sci('cos')">cos</button>
+        <button onclick="sci('tan')">tan</button>
+        <button onclick="sci('sqrt')">√</button>
+        <button onclick="sci('pow')">x²</button>
+        <button onclick="sci('fact')">x!</button>
+        <button onclick="sci('percent')">%</button>
+      </div>
     </div>
 
-    <div class="science">
-      <button onclick="sci('sin')">sin</button>
-      <button onclick="sci('cos')">cos</button>
-      <button onclick="sci('tan')">tan</button>
-      <button onclick="sci('sqrt')">√</button>
-      <button onclick="sci('pow')">x²</button>
-      <button onclick="sci('fact')">x!</button>
-      <button onclick="sci('percent')">%</button>
-    </div>
+    <aside class="history">
+      <h3>History</h3>
+      <ul id="history"></ul>
+    </aside>
+
   </div>
 
-  <div class="history">
-    <h3>History</h3>
-    <ul id="history"></ul>
-  </div>
+  <!-- App Logic -->
+  <script src="script.js?v=install1"></script>
 
-</div>
-
-<script>
-const display = document.getElementById("display");
-const history = document.getElementById("history");
-
-function append(v){ display.value += v; }
-function clearAll(){ display.value = ""; }
-
-function calculate(){
-  try{
-    if(!display.value) return;
-    const r = eval(display.value);
-    save(display.value + " = " + r);
-    display.value = r;
-  }catch{
-    display.value = "Error";
-  }
-}
-
-function sci(t){
-  if(!display.value) return;
-  let x = Number(display.value), r;
-  if(t==="sin") r=Math.sin(x);
-  if(t==="cos") r=Math.cos(x);
-  if(t==="tan") r=Math.tan(x);
-  if(t==="sqrt") r=Math.sqrt(x);
-  if(t==="pow") r=x*x;
-  if(t==="percent") r=x/100;
-  if(t==="fact") r=fact(x);
-  save(t+"("+x+") = "+r);
-  display.value=r;
-}
-
-function fact(n){
-  if(n<0) return "Error";
-  let f=1;
-  for(let i=1;i<=n;i++) f*=i;
-  return f;
-}
-
-function save(t){
-  const li=document.createElement("li");
-  li.textContent=t;
-  history.prepend(li);
-}
-</script>
+  <!-- Service Worker (REQUIRED for installability) -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
 
 </body>
 </html>
