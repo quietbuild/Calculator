@@ -1,91 +1,123 @@
 * {
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #0e1225;
-  color: white;
-  text-align: center;
-}
-
-header {
-  padding: 15px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  color: white;
+}
+
+/* Small stylish credit */
+.credit {
+  position: fixed;
+  top: 14px;
+  right: 18px;
+  font-size: 13px;
+  opacity: 0.7;
+  letter-spacing: 0.6px;
+}
+
+/* App layout */
+.app {
+  display: flex;
+  gap: 24px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* Calculator body */
 .calculator {
-  background: #1b1f3b;
-  padding: 20px;
-  border-radius: 14px;
-  width: 300px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  padding: 22px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
+/* Display */
 #display {
   width: 100%;
-  height: 55px;
-  font-size: 24px;
+  height: 60px;
+  font-size: 26px;
+  font-weight: 600;
   text-align: right;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 12px;
   border: none;
-  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  margin-bottom: 14px;
 }
 
-.grid {
+/* Button grid */
+.grid,
+.science {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
 }
 
+/* Buttons */
 button {
-  height: 45px;
+  height: 52px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.18);
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  background: #3d45a8;
-  color: white;
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
 }
 
 .wide {
   grid-column: span 2;
 }
 
+/* Science buttons spacing */
 .science {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  margin-top: 12px;
 }
 
+/* History panel */
 .history {
-  background: #1b1f3b;
-  padding: 15px;
-  border-radius: 14px;
-  width: 220px;
-  max-height: 320px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  padding: 18px;
+  border-radius: 20px;
+  width: 240px;
+  max-height: 340px;
   overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.history h3 {
+  margin-top: 0;
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 .history ul {
   list-style: none;
   padding: 0;
+  margin: 0;
   font-size: 14px;
+  opacity: 0.9;
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .app {
     flex-direction: column;
