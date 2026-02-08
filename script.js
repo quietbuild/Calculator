@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 const history = document.getElementById("history");
+const watermark = document.getElementById("watermark");
 
 function append(val) {
   display.value += val;
@@ -14,6 +15,7 @@ function calculate() {
     const result = eval(display.value);
     save(display.value + " = " + result);
     display.value = result;
+    flashWatermark();
   } catch {
     display.value = "Error";
   }
@@ -33,6 +35,7 @@ function sci(type) {
 
   save(type + "(" + x + ") = " + r);
   display.value = r;
+  flashWatermark();
 }
 
 function factorial(n) {
@@ -48,7 +51,15 @@ function save(text) {
   history.prepend(li);
 }
 
-/* Keyboard support */
+/* Watermark flash */
+function flashWatermark() {
+  watermark.classList.add("show");
+  setTimeout(() => {
+    watermark.classList.remove("show");
+  }, 180); // split second
+}
+
+/* Keyboard */
 document.addEventListener("keydown", e => {
   if ("0123456789+-*/().".includes(e.key)) append(e.key);
   if (e.key === "Enter") calculate();
