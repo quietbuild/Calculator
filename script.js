@@ -15,7 +15,7 @@ function calculate() {
     const result = eval(display.value);
     save(display.value + " = " + result);
     display.value = result;
-    flashWatermark();
+    blinkWatermark();
   } catch {
     display.value = "Error";
   }
@@ -35,7 +35,7 @@ function sci(type) {
 
   save(type + "(" + x + ") = " + r);
   display.value = r;
-  flashWatermark();
+  blinkWatermark();
 }
 
 function factorial(n) {
@@ -51,15 +51,15 @@ function save(text) {
   history.prepend(li);
 }
 
-/* Watermark flash */
-function flashWatermark() {
+/* Subtle watermark blink */
+function blinkWatermark() {
   watermark.classList.add("show");
   setTimeout(() => {
     watermark.classList.remove("show");
-  }, 180); // split second
+  }, 120);
 }
 
-/* Keyboard */
+/* Keyboard support */
 document.addEventListener("keydown", e => {
   if ("0123456789+-*/().".includes(e.key)) append(e.key);
   if (e.key === "Enter") calculate();
