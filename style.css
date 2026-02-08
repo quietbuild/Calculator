@@ -6,13 +6,10 @@
 body {
   margin: 0;
   height: 100vh;
-
-  /* premium background */
   background:
     radial-gradient(circle at 20% 20%, #1a2045, transparent 60%),
     radial-gradient(circle at 80% 30%, #0f3a3a, transparent 55%),
     linear-gradient(135deg, #070914, #0b1025);
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +23,7 @@ body {
   position: relative;
 }
 
-/* REAL watermark — background only */
+/* BRANDING WATERMARK (VISIBLE BUT CLEAN) */
 .app::before {
   content: "VRISHAB VARUN";
   position: absolute;
@@ -36,17 +33,18 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-size: 72px;
-  font-weight: 800;
-  letter-spacing: 12px;
-  color: rgba(255, 255, 255, 0.035);
+  font-size: 56px;          /* readable */
+  font-weight: 700;
+  letter-spacing: 10px;
+
+  color: rgba(255, 255, 255, 0.10); /* 👈 THIS is the key change */
 
   pointer-events: none;
   user-select: none;
   z-index: 0;
 }
 
-/* Calculator card */
+/* Calculator */
 .calculator {
   background: rgba(15, 20, 45, 0.92);
   backdrop-filter: blur(10px);
